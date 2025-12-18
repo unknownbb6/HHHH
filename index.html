@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Camera Test</title>
+</head>
+<body>
+  <h2>Camera Test (With Permission)</h2>
+  <video id="cam" autoplay></video>
+
+  <script>
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+        document.getElementById("cam").srcObject = stream;
+      })
+      .catch(err => {
+        alert("Camera permission denied");
+      });
+  </script>
+</body>
+</html>
